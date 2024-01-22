@@ -18,123 +18,123 @@ img {
 </head>
 <body>
 <code>
-SELECT
-    CASE
-        WHEN z.sif_adrese IS NOT NULL THEN TO_CHAR(z.sif_adrese)
-        WHEN b.sifra_adrese IS NOT NULL THEN TO_CHAR(b.sifra_adrese)
-        ELSE 
-            CASE
-                WHEN p.adresa LIKE 'Darka Medanića%' THEN '1-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Doričići%' THEN '2-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Dujmići%' THEN '3-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Elvira Vrha%' THEN '4-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Glavani%' THEN '5-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Ive Šodića%' THEN '6-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Josipa Šarinića%' THEN '7-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Kostrenskih boraca%' THEN '8-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Maračići%' THEN '9-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Martinšćica%' THEN '10-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Mažeri%' THEN '11-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Paveki%' THEN '12-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Perovići%' THEN '13-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Plešići%' THEN '14-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Randići%' THEN '16-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Raspelje%' THEN '17-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Rožići%' THEN '18-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Rožmanići%' THEN '19-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Stara voda%' THEN '20-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Suzanićev put%' THEN '21-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Sveta Lucija%' THEN '22-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Šetalište Kostrenskih Pomoraca%' THEN '23-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Šodići%' THEN '24-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Šoići%' THEN '25-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Šojska%' THEN '26-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Šubati%' THEN '27-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Trg Svete Barbare%' THEN '28-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Urinj%' THEN '29-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Vrh Martinšćice%' THEN '30-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Žarka Pezelja%' THEN '31-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Željka Čepulića%' THEN '32-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Žuknica%' THEN '33-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Žurkovo%' THEN '34-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-                WHEN p.adresa LIKE 'Ulica hrvatskih branitelja%' THEN '35-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')
-            ELSE ''
-            END
-    END AS address,
-    CASE
-        WHEN z.sif_adrese IS NOT NULL AND z.sif_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese,'[^-]+',1,1))
-        WHEN z.sif_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese,'[^-]+',1,1))
-        WHEN b.sifra_adrese IS NOT NULL AND b.sifra_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(b.sifra_adrese,'[^-]+',1,1))
-        WHEN b.sifra_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(b.sifra_adrese,'[^-]+',1,1))
-        ELSE ''
-    END AS code_address,
-    CASE
-        WHEN z.sif_adrese IS NOT NULL AND z.sif_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))
-        WHEN z.sif_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))
-        WHEN b.sifra_adrese IS NOT NULL AND b.sifra_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))
-        WHEN b.sifra_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))
-        ELSE         
-            CASE
-                WHEN p.adresa LIKE 'Darka Medanića%' THEN '1'
-                WHEN p.adresa LIKE 'Doričići%' THEN '2'
-                WHEN p.adresa LIKE 'Dujmići%' THEN '3'
-                WHEN p.adresa LIKE 'Elvira Vrha%' THEN '4'
-                WHEN p.adresa LIKE 'Glavani%' THEN '5'
-                WHEN p.adresa LIKE 'Ive Šodića%' THEN '6'
-                WHEN p.adresa LIKE 'Josipa Šarinića%' THEN '7'
-                WHEN p.adresa LIKE 'Kostrenskih boraca%' THEN '8'
-                WHEN p.adresa LIKE 'Maračići%' THEN '9'
-                WHEN p.adresa LIKE 'Martinšćica%' THEN '10'
-                WHEN p.adresa LIKE 'Mažeri%' THEN '11'
-                WHEN p.adresa LIKE 'Paveki%' THEN '12'
-                WHEN p.adresa LIKE 'Perovići%' THEN '13'
-                WHEN p.adresa LIKE 'Plešići%' THEN '14'
-                WHEN p.adresa LIKE 'Randići%' THEN '16'
-                WHEN p.adresa LIKE 'Raspelje%' THEN '17'
-                WHEN p.adresa LIKE 'Rožići%' THEN '18'
-                WHEN p.adresa LIKE 'Rožmanići%' THEN '19'
-                WHEN p.adresa LIKE 'Stara voda%' THEN '20'
-                WHEN p.adresa LIKE 'Suzanićev put%' THEN '21'
-                WHEN p.adresa LIKE 'Sveta Lucija%' THEN '22'
-                WHEN p.adresa LIKE 'Šetalište kostrenskih pomoraca%' THEN '23'
-                WHEN p.adresa LIKE 'Šodići%' THEN '24'
-                WHEN p.adresa LIKE 'Šoići%' THEN '25'
-                WHEN p.adresa LIKE 'Šojska%' THEN '26'
-                WHEN p.adresa LIKE 'Šubati%' THEN '27'
-                WHEN p.adresa LIKE 'Trg Svete Barbare%' THEN '28'
-                WHEN p.adresa LIKE 'Urinj%' THEN '29'
-                WHEN p.adresa LIKE 'Vrh Martinšćice%' THEN '30'
-                WHEN p.adresa LIKE 'Žarka Pezelja%' THEN '31'
-                WHEN p.adresa LIKE 'Željka Čepulića%' THEN '32'
-                WHEN p.adresa LIKE 'Žuknica%' THEN '33'
-                WHEN p.adresa LIKE 'Žurkovo%' THEN '34'
-                WHEN p.adresa LIKE 'Ulica hrvatskih branitelja%' THEN '35'
-                ELSE ''
-            END
-    END AS home_number,
-    CASE
-        WHEN z.adresa IS NOT NULL THEN TO_CHAR(INITCAP(z.adresa))
-        WHEN z.adresa IS NULL AND b.adresa_objekta IS NOT NULL THEN TO_CHAR(INITCAP(b.adresa_objekta))
-        ELSE INITCAP(p.adresa)
-    END AS address,
-SUM(z.NKP_UKUPNO) AS nkp_sum,
-SUM(z.PP_UKUPNO) AS pp_sum,
-SUM(z.PP_ZEMLJISTE_UKUPNO) AS pp_zemljiste_sum,
-SUM(b.povrsina) AS aresa_sum,
-    CASE
-        WHEN p.adresa IS NOT NULL THEN 'višestambeno'
-        WHEN b.adresa_objekta IS NULL AND z.adresa IS NOT NULL THEN 'izmjereno, ali nije u bazi komunalne naknade'
-        WHEN b.adresa_objekta IS NOT NULL AND z.adresa IS NULL THEN 'nije izmjereno, ali je u bazi komunalne naknade'
-        WHEN b.adresa_objekta IS NOT NULL AND z.adresa IS NOT NULL THEN ''
-        ELSE 'treba provjeriti'
-    END AS note
-FROM baza_kom_naknade b
-FULL JOIN zgrada_ukupno z
-ON z.sif_adrese = b.sifra_adrese
-FULL JOIN povrsine_vs_view p
-ON b.adresa_objekta = z.adresa
-GROUP BY b.sifra_adrese, b.adresa_objekta, z.adresa, z.sif_adrese, p.adresa
-ORDER BY 
-CASE WHEN REPLACE(TRANSLATE(TRIM(code_address),'0123456789','0'),'0','') IS NULL THEN TO_NUMBER(code_address) end, 
-CASE WHEN REPLACE(TRANSLATE(TRIM(home_number),'0123456789','0'),'0','') IS NULL THEN TO_NUMBER(home_number) end;
+SELECT<br>
+    CASE<br>
+        WHEN z.sif_adrese IS NOT NULL THEN TO_CHAR(z.sif_adrese)<br>
+        WHEN b.sifra_adrese IS NOT NULL THEN TO_CHAR(b.sifra_adrese)<br>
+        ELSE <br>
+            CASE<br>
+                WHEN p.adresa LIKE 'Darka Medanića%' THEN '1-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Doričići%' THEN '2-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Dujmići%' THEN '3-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Elvira Vrha%' THEN '4-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Glavani%' THEN '5-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Ive Šodića%' THEN '6-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Josipa Šarinića%' THEN '7-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Kostrenskih boraca%' THEN '8-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Maračići%' THEN '9-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Martinšćica%' THEN '10-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Mažeri%' THEN '11-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Paveki%' THEN '12-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Perovići%' THEN '13-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Plešići%' THEN '14-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Randići%' THEN '16-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Raspelje%' THEN '17-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Rožići%' THEN '18-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Rožmanići%' THEN '19-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Stara voda%' THEN '20-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Suzanićev put%' THEN '21-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Sveta Lucija%' THEN '22-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Šetalište Kostrenskih Pomoraca%' THEN '23-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Šodići%' THEN '24-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Šoići%' THEN '25-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Šojska%' THEN '26-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Šubati%' THEN '27-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Trg Svete Barbare%' THEN '28-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Urinj%' THEN '29-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Vrh Martinšćice%' THEN '30-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Žarka Pezelja%' THEN '31-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Željka Čepulića%' THEN '32-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Žuknica%' THEN '33-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Žurkovo%' THEN '34-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+                WHEN p.adresa LIKE 'Ulica hrvatskih branitelja%' THEN '35-' || LTRIM(REGEXP_SUBSTR(p.adresa, '[0-9].*'),'0')<br>
+            ELSE ''<br>
+            END<br>
+    END AS address,<br>
+    CASE<br>
+        WHEN z.sif_adrese IS NOT NULL AND z.sif_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese,'[^-]+',1,1))<br>
+        WHEN z.sif_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese,'[^-]+',1,1))<br>
+        WHEN b.sifra_adrese IS NOT NULL AND b.sifra_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(b.sifra_adrese,'[^-]+',1,1))<br>
+        WHEN b.sifra_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(b.sifra_adrese,'[^-]+',1,1))<br>
+        ELSE ''<br>
+    END AS code_address,<br>
+    CASE<br>
+        WHEN z.sif_adrese IS NOT NULL AND z.sif_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))<br>
+        WHEN z.sif_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))<br>
+        WHEN b.sifra_adrese IS NOT NULL AND b.sifra_adrese LIKE '%'||'/'||'%' THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))<br>
+        WHEN b.sifra_adrese IS NOT NULL THEN TO_CHAR(REGEXP_SUBSTR(z.sif_adrese, '[^-]+', 1, 2))<br>
+        ELSE         <br>
+            CASE<br>
+                WHEN p.adresa LIKE 'Darka Medanića%' THEN '1'<br>
+                WHEN p.adresa LIKE 'Doričići%' THEN '2'<br>
+                WHEN p.adresa LIKE 'Dujmići%' THEN '3'<br>
+                WHEN p.adresa LIKE 'Elvira Vrha%' THEN '4'<br>
+                WHEN p.adresa LIKE 'Glavani%' THEN '5'<br>
+                WHEN p.adresa LIKE 'Ive Šodića%' THEN '6'<br>
+                WHEN p.adresa LIKE 'Josipa Šarinića%' THEN '7'<br>
+                WHEN p.adresa LIKE 'Kostrenskih boraca%' THEN '8'<br>
+                WHEN p.adresa LIKE 'Maračići%' THEN '9'<br>
+                WHEN p.adresa LIKE 'Martinšćica%' THEN '10'<br>
+                WHEN p.adresa LIKE 'Mažeri%' THEN '11'<br>
+                WHEN p.adresa LIKE 'Paveki%' THEN '12'<br>
+                WHEN p.adresa LIKE 'Perovići%' THEN '13'<br>
+                WHEN p.adresa LIKE 'Plešići%' THEN '14'<br>
+                WHEN p.adresa LIKE 'Randići%' THEN '16'<br>
+                WHEN p.adresa LIKE 'Raspelje%' THEN '17'<br>
+                WHEN p.adresa LIKE 'Rožići%' THEN '18'<br>
+                WHEN p.adresa LIKE 'Rožmanići%' THEN '19'<br>
+                WHEN p.adresa LIKE 'Stara voda%' THEN '20'<br>
+                WHEN p.adresa LIKE 'Suzanićev put%' THEN '21'<br>
+                WHEN p.adresa LIKE 'Sveta Lucija%' THEN '22'<br>
+                WHEN p.adresa LIKE 'Šetalište kostrenskih pomoraca%' THEN '23'<br>
+                WHEN p.adresa LIKE 'Šodići%' THEN '24'<br>
+                WHEN p.adresa LIKE 'Šoići%' THEN '25'<br>
+                WHEN p.adresa LIKE 'Šojska%' THEN '26'<br>
+                WHEN p.adresa LIKE 'Šubati%' THEN '27'<br>
+                WHEN p.adresa LIKE 'Trg Svete Barbare%' THEN '28'<br>
+                WHEN p.adresa LIKE 'Urinj%' THEN '29'<br>
+                WHEN p.adresa LIKE 'Vrh Martinšćice%' THEN '30'<br>
+                WHEN p.adresa LIKE 'Žarka Pezelja%' THEN '31'<br>
+                WHEN p.adresa LIKE 'Željka Čepulića%' THEN '32'<br>
+                WHEN p.adresa LIKE 'Žuknica%' THEN '33'<br>
+                WHEN p.adresa LIKE 'Žurkovo%' THEN '34'<br>
+                WHEN p.adresa LIKE 'Ulica hrvatskih branitelja%' THEN '35'<br>
+                ELSE ''<br>
+            END<br>
+    END AS home_number,<br>
+    CASE<br>
+        WHEN z.adresa IS NOT NULL THEN TO_CHAR(INITCAP(z.adresa))<br>
+        WHEN z.adresa IS NULL AND b.adresa_objekta IS NOT NULL THEN TO_CHAR(INITCAP(b.adresa_objekta))<br>
+        ELSE INITCAP(p.adresa)<br>
+    END AS address,<br>
+SUM(z.NKP_UKUPNO) AS nkp_sum,<br>
+SUM(z.PP_UKUPNO) AS pp_sum,<br>
+SUM(z.PP_ZEMLJISTE_UKUPNO) AS pp_zemljiste_sum,<br>
+SUM(b.povrsina) AS aresa_sum,<br>
+    CASE<br>
+        WHEN p.adresa IS NOT NULL THEN 'višestambeno'<br>
+        WHEN b.adresa_objekta IS NULL AND z.adresa IS NOT NULL THEN 'izmjereno, ali nije u bazi komunalne naknade'<br>
+        WHEN b.adresa_objekta IS NOT NULL AND z.adresa IS NULL THEN 'nije izmjereno, ali je u bazi komunalne naknade'<br>
+        WHEN b.adresa_objekta IS NOT NULL AND z.adresa IS NOT NULL THEN ''<br>
+        ELSE 'treba provjeriti'<br>
+    END AS note<br>
+FROM baza_kom_naknade b<br>
+FULL JOIN zgrada_ukupno z<br>
+ON z.sif_adrese = b.sifra_adrese<br>
+FULL JOIN povrsine_vs_view p<br>
+ON b.adresa_objekta = z.adresa<br>
+GROUP BY b.sifra_adrese, b.adresa_objekta, z.adresa, z.sif_adrese, p.adresa<br>
+ORDER BY <br>
+CASE WHEN REPLACE(TRANSLATE(TRIM(code_address),'0123456789','0'),'0','') IS NULL THEN TO_NUMBER(code_address) end, <br>
+CASE WHEN REPLACE(TRANSLATE(TRIM(home_number),'0123456789','0'),'0','') IS NULL THEN TO_NUMBER(home_number) end;<br>
 </code>
