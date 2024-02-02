@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
     <style>
-        /* Style for gallery container */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-            margin: 20px;
+            width: 80%;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
-        /* Style for gallery images */
         .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        /* Hover effect on images */
-        .gallery img:hover {
-            transform: scale(1.1);
+            max-width: 100%;
+            max-height: 100%;
+            margin-right: 10px;
         }
     </style>
 </head>
-
 <body>
-    <h1>Image Gallery</h1>
-
     <div class="gallery">
-        <!-- Replace the image sources with your own image URLs -->
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <!-- Add more images as needed -->
+        <img src="https://github.com/mikas-m/mikas-m.github.io/tree/main/photos/arcgis.jpg" alt="15 peaks of Velebit Mt. with highest topographic prominence">
+        <img src="/photos/arcgis1.jpg" alt="Topographic prominence and relative relief energy of Velebit Mt.">
+        <img src="/photos/arcgis2.jpg" alt="Geomorphological regions of Velebit Mt.">
+        <img src="/photos/arcgis3.jpg" alt="Geological map of Petrova gora">
+        <img src="/photos/arcgis4.jpg" alt="Structural-geological map of Petrova gora">
     </div>
 </body>
-
 </html>
